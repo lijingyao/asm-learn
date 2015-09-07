@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 添加和移除class 元素
+ * ???????class ???
  * Created by yunshen.ljy on 2015/7/13.
  */
 public class TestRemoveAndAddTransformer {
@@ -25,8 +25,8 @@ public class TestRemoveAndAddTransformer {
         at.transform(cn);
         ClassWriter cw = new ClassWriter(0);
         cn.accept(cw);
-        byte[] toByte = cw.toByteArray();// byt 和toByte其实是相同的数组
-        // 输出到class文件
+        byte[] toByte = cw.toByteArray();// byt ??toByte??????????????
+        // ?????class???
 
         File file = new File("Task.class");
         FileOutputStream fout = new FileOutputStream(file);

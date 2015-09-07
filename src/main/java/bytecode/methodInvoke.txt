@@ -1,0 +1,60 @@
+Classfile /D:/AuctionWorkspace/asm/src/main/java/bytecode/MethodInvotionTest.class
+  Last modified 2015-7-27; size 360 bytes
+  MD5 checksum 6a6f257284a1113ac0622409c621e680
+  Compiled from "MethodInvotionTest.java"
+public class bytecode.MethodInvotionTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
+   #2 = Class              #16            // bytecode/Beer
+   #3 = Methodref          #2.#15         // bytecode/Beer."<init>":()V
+   #4 = Methodref          #17.#18        // bytecode/Wine.drink:(I)Ljava/lang/String;
+   #5 = Class              #19            // bytecode/MethodInvotionTest
+   #6 = Class              #20            // java/lang/Object
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               drink
+  #12 = Utf8               (I)Ljava/lang/String;
+  #13 = Utf8               SourceFile
+  #14 = Utf8               MethodInvotionTest.java
+  #15 = NameAndType        #7:#8          // "<init>":()V
+  #16 = Utf8               bytecode/Beer
+  #17 = Class              #21            // bytecode/Wine
+  #18 = NameAndType        #11:#12        // drink:(I)Ljava/lang/String;
+  #19 = Utf8               bytecode/MethodInvotionTest
+  #20 = Utf8               java/lang/Object
+  #21 = Utf8               bytecode/Wine
+{
+  public bytecode.MethodInvotionTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  public java.lang.String drink(int);
+    descriptor: (I)Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=2
+         0: new           #2                  // class bytecode/Beer
+         3: dup
+         4: invokespecial #3                  // Method bytecode/Beer."<init>":()V
+         7: astore_2
+         8: aload_2
+         9: iload_1
+        10: invokevirtual #4                  // Method bytecode/Wine.drink:(I)Ljava/lang/String;
+        13: areturn
+      LineNumberTable:
+        line 10: 0
+        line 12: 8
+}
+SourceFile: "MethodInvotionTest.java"
