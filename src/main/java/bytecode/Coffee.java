@@ -7,6 +7,7 @@ public class Coffee {
 
     private static final int constant =2;
 
+
     int f;
 
     public void addEspresso(int f) {
