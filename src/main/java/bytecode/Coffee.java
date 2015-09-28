@@ -10,7 +10,7 @@ public class Coffee {
     int f;
 
     public void addEspresso(int f) {
-        if (f >= 0) {
+        if (f >= 1) {
             this.f = f;
         } else {
             throw new IllegalArgumentException();
