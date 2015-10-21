@@ -12,11 +12,16 @@ public class LambdaExpression {
         System.out.print(Long.toString(itemId));
         final String pre = "alph:";
         Arrays.asList("a", "b", "c").forEach(auctionSearchDO -> System.out.println(auctionSearchDO));
-        Arrays.asList("d", "e", "f","g").subList(0,2).forEach(e -> {
+
+//        Arrays.asList("nani","sodetsu").subList(0,1).forEach(i -> {
+//            System.out.println(i);
+//        });
+//
+
+        Arrays.asList("d", "e", "f","g").subList(0, 2).forEach(e -> {
             System.out.println(pre + e);
         });
-        // 默认会添加return .等价于函数式接口中添加了return
-        Arrays.asList( "a", "b", "d" ).sort( ( e1, e2 ) -> e1.compareTo( e2 ) );
+        Arrays.asList("a", "b", "d").sort((e1, e2) -> e1.compareTo(e2));
 
     }
 
