@@ -9,7 +9,7 @@ import java.util.Optional;
 public class OptionalUse {
 
     public static void main(String[] args){
-        Optional< Object > fullName = Optional.ofNullable( null );
+        Optional< Object > fullName = Optional.empty();
         //非空值的话，isPresent()返回true，否从返回false。
         System.out.println( "Full Name is set? " + fullName.isPresent() );
         // orElseGet()方法通过回调函数来产生一个默认值。
@@ -19,6 +19,7 @@ public class OptionalUse {
 
 
         Optional< String > firstName = Optional.of( "Tom" );
+//        firstName="haha";
         System.out.println( "First Name is set? " + firstName.isPresent() );
         System.out.println( "First Name: " + firstName.orElseGet( () -> "[none]" ) );
         System.out.println( firstName.map( s -> "Hey " + s + "!" ).orElse( "Hey Stranger!" ) );

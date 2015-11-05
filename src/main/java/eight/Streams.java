@@ -47,6 +47,7 @@ public class Streams {
                 .boxed() // Stream< Double >
                 .mapToLong(weigth -> (long) (weigth * 100)) // LongStream
                 .mapToObj(percentage -> percentage + "%") // Stream< String>
+//                .filter()
                 .collect(Collectors.toList()); // List< String >
 
         System.out.println(result);

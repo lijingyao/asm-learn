@@ -9,10 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * ???????class ???
- * Created by yunshen.ljy on 2015/7/13.
- */
+
 public class TestRemoveAndAddTransformer {
 
     public static void main(String[] args) throws IOException {
@@ -25,8 +22,7 @@ public class TestRemoveAndAddTransformer {
         at.transform(cn);
         ClassWriter cw = new ClassWriter(0);
         cn.accept(cw);
-        byte[] toByte = cw.toByteArray();// byt ??toByte??????????????
-        // ?????class???
+        byte[] toByte = cw.toByteArray();
 
         File file = new File("Task.class");
         FileOutputStream fout = new FileOutputStream(file);

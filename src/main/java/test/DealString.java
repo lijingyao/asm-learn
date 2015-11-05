@@ -1,8 +1,8 @@
 package test;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+//import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+//import org.apache.commons.lang.builder.ToStringBuilder;
+//import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.Objects;
 
@@ -47,17 +47,17 @@ public class DealString {
 //                .add("super", super.toString()).toString();
 //    }
 
-    public String toString3() {
-        return new ToStringBuilder(this).append("att1", att1).append("att2", att2).append("att3", att3)
-                .append("super", super.toString()).toString();
-    }
-
-    public String toString4() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
-
-    public String toString5() {
-        return ReflectionToStringBuilder.toString(this);
-    }
+//    public String toString3() {
+//        return new ToStringBuilder(this).append("att1", att1).append("att2", att2).append("att3", att3)
+//                .append("super", super.toString()).toString();
+//    }
+//
+//    public String toString4() {
+//        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+//    }
+//
+//    public String toString5() {
+//        return ReflectionToStringBuilder.toString(this);
+//    }
 
 }
