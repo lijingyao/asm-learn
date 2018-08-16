@@ -1,4 +1,4 @@
-Classfile /D:/AuctionWorkspace/asm/src/main/java/bytecode/MethodInvotionTest.class
+Classfile /D:/AuctionWorkspace/lijingyao.asm/src/main/java/bytecode/MethodInvotionTest.class
   Last modified 2015-7-27; size 360 bytes
   MD5 checksum 6a6f257284a1113ac0622409c621e680
   Compiled from "MethodInvotionTest.java"

@@ -2,7 +2,7 @@ package eight;
 
 /**
  * java8
- * º¯ÊıÊ½½Ó¿Ú
+ * å‡½æ•°å¼æ¥å£
  * Created by yunshen.ljy on 2015/7/20.
  */
 @FunctionalInterface

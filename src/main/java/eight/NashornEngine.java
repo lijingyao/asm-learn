@@ -5,7 +5,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * ava与JavaScript相互调用
  * Created by yunshen.ljy on 2015/7/28.
  */
 public class NashornEngine {

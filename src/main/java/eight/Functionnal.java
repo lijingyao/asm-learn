@@ -9,7 +9,7 @@ import java.util.function.Function;
  */
 public class Functionnal {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.getFirstName());
         greeter.accept(new Person("Luke", "Skywalker"));
 
@@ -18,7 +18,7 @@ public class Functionnal {
         Person p1 = new Person("John", "Doe");
         Person p2 = new Person("Alice", "Wonderland");
 
-        comparator.compare(p1, p2);             // > 0
+        System.out.print(comparator.compare(p1, p2));             // > 0
         comparator.reversed().compare(p1, p2);  // < 0
 
 

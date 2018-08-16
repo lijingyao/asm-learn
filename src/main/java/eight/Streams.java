@@ -1,44 +1,40 @@
 package eight;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import com.google.common.collect.Lists;
+
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * stream api
- * °Ñ¼¯ºÏ·Åµ½streamÖĞ£¬¹ıÂË¡¢·Ö×é
+ * æŠŠé›†åˆæ”¾åˆ°streamä¸­ï¼Œè¿‡æ»¤ã€åˆ†ç»„
  * Created by yunshen.ljy on 2015/7/28.
  */
 public class Streams {
 
     public static void main(String[] args) {
 
-        final Collection<Task> tasks = Arrays.asList(new Task(Status.OPEN, 5), new Task(Status.OPEN, 13), new Task(
-                Status.CLOSED, 8));
-        // mapToInt²Ù×÷µ÷ÓÃÃ¿¸ötaskÊµÀıµÄgetPoints·½·¨°ÑTaskµÄstream×ª»¯ÎªIntegerµÄstream
-        final long totalPointsOfOpenTasks = tasks.stream().filter(task -> task.getStatus() == Status.OPEN)
-                .mapToInt(Task::getPoints).sum();
+
+        final Collection<Task> tasks = Arrays.asList(new Task(Status.OPEN, 5), new Task(Status.OPEN, 13), new Task(Status.CLOSED, 8));
+        // mapToIntæ“ä½œè°ƒç”¨æ¯ä¸ªtaskå®ä¾‹çš„getPointsæ–¹æ³•æŠŠTaskçš„streamè½¬åŒ–ä¸ºIntegerçš„stream
+        final long totalPointsOfOpenTasks = tasks.stream().filter(task -> task.getStatus() == Status.OPEN).mapToInt(Task::getPoints).sum();
 
         System.out.println("Total points: " + totalPointsOfOpenTasks);
 
-        // parallelµ÷ÓÃ£¬²¢ĞĞÔËĞĞ
+        // parallelè°ƒç”¨ï¼Œå¹¶è¡Œè¿è¡Œ
         final double totalPoints = tasks.stream().parallel().map(task -> task.getPoints()).reduce(0, Integer::sum);
 
         System.out.println("Total points (all tasks): " + totalPoints);
 
-        // ¶Ô¼¯ºÏÔªËØ·Ö×éGroup tasks by their status
+        // å¯¹é›†åˆå…ƒç´ åˆ†ç»„Group tasks by their status
         final Map<Status, List<Task>> map = tasks.stream().collect(Collectors.groupingBy(Task::getStatus));
         System.out.println(map);
 
-        // ¼ÆËãÕû¸ö¼¯ºÏÖĞÃ¿¸ötask·ÖÊı£¨»òÈ¨ÖØ£©µÄÆ½¾ùÖµCalculate the weight of each tasks (as
+        // è®¡ç®—æ•´ä¸ªé›†åˆä¸­æ¯ä¸ªtaskåˆ†æ•°ï¼ˆæˆ–æƒé‡ï¼‰çš„å¹³å‡å€¼Calculate the weight of each tasks (as
         // percent of total points)
         final Collection<String> result = tasks.stream() // Stream< String >
                 .mapToInt(Task::getPoints) // IntStream
@@ -47,22 +43,52 @@ public class Streams {
                 .boxed() // Stream< Double >
                 .mapToLong(weigth -> (long) (weigth * 100)) // LongStream
                 .mapToObj(percentage -> percentage + "%") // Stream< String>
-//                .filter()
+                //                .filter()
                 .collect(Collectors.toList()); // List< String >
 
         System.out.println(result);
+        //
+        //        final Path path = new File("time.txt").toPath();
+        //        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)) {
+        //            lines.onClose(() -> System.out.println("Done!")).forEach(System.out::println);
+        //        } catch (IOException e) {
+        //            e.printStackTrace();
+        //        }
 
-        final Path path = new File("time.txt").toPath();
-        try (Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8)) {
-            lines.onClose(() -> System.out.println("Done!")).forEach(System.out::println);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        List<Long> remindId = Lists.newArrayList(1l, 2l, 3l, 4l, 5l);
+        Long value = 11l;
+
+        Map<Long, Long> remindMap = remindId.stream().collect(Collectors.toMap(x -> x, x -> value, (x, y) -> x, LinkedHashMap::new));
+
+        remindMap.entrySet().forEach(m -> {
+            System.out.println(">>>:" + m.getKey() + ">>>>:" + m.getValue());
+        });
+        Map<Long, Long> resultMap = remindMap.entrySet().stream().map(k -> wrap(k, 13)).collect(Collectors.toMap(entry -> entry.getKey(),
+                entry -> entry.getValue()));
+
+        resultMap.entrySet().forEach(m -> {
+            System.out.println("result>>>:" + m.getKey() + ">>>>:" + m.getValue());
+        });
+
+
+    }
+
+    private static Map.Entry<Long, Long> wrap(Map.Entry<Long, Long> k, long i) {
+
+        if (k.getKey() + k.getValue() > i) {
+            k.setValue(k.getKey() + k.getValue());
+            return k;
+        } else {
+            k.setValue(0l);
+            return k;
         }
     }
 
     private enum Status {
         OPEN, CLOSED
-    };
+    }
+
 
     private static final class Task {
         private final Status status;

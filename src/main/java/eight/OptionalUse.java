@@ -3,23 +3,23 @@ package eight;
 import java.util.Optional;
 
 /**
- * Optional ÈİÆ÷,nullpoint¡¡´¦Àí
+ * Optional å®¹å™¨,nullpointã€€å¤„ç†
  * Created by yunshen.ljy on 2015/7/27.
  */
 public class OptionalUse {
 
     public static void main(String[] args){
         Optional< Object > fullName = Optional.empty();
-        //·Ç¿ÕÖµµÄ»°£¬isPresent()·µ»Øtrue£¬·ñ´Ó·µ»Øfalse¡£
+        //éç©ºå€¼çš„è¯ï¼ŒisPresent()è¿”å›trueï¼Œå¦ä»è¿”å›falseã€‚
         System.out.println( "Full Name is set? " + fullName.isPresent() );
-        // orElseGet()·½·¨Í¨¹ı»Øµ÷º¯ÊıÀ´²úÉúÒ»¸öÄ¬ÈÏÖµ¡£
+        // orElseGet()æ–¹æ³•é€šè¿‡å›è°ƒå‡½æ•°æ¥äº§ç”Ÿä¸€ä¸ªé»˜è®¤å€¼ã€‚
         System.out.println( "Full Name: " + fullName.orElseGet( () -> "[none]" ) );
-        // orElse()·½·¨ºÍorElseGet()·½·¨ÀàËÆ£¬µ«ÊÇorElse½ÓÊÜÒ»¸öÄ¬ÈÏÖµ¶ø²»ÊÇÒ»¸ö»Øµ÷º¯Êı¡£
+        // orElse()æ–¹æ³•å’ŒorElseGet()æ–¹æ³•ç±»ä¼¼ï¼Œä½†æ˜¯orElseæ¥å—ä¸€ä¸ªé»˜è®¤å€¼è€Œä¸æ˜¯ä¸€ä¸ªå›è°ƒå‡½æ•°ã€‚
         System.out.println( fullName.map( s -> "Hey " + s + "!" ).orElse( "Hey Stranger!" ) );
 
 
         Optional< String > firstName = Optional.of( "Tom" );
-//        firstName="haha";
+        //        firstName="haha";
         System.out.println( "First Name is set? " + firstName.isPresent() );
         System.out.println( "First Name: " + firstName.orElseGet( () -> "[none]" ) );
         System.out.println( firstName.map( s -> "Hey " + s + "!" ).orElse( "Hey Stranger!" ) );

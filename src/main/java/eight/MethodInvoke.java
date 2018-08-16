@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * ·½·¨µ÷ÓÃ
+ * æ–¹æ³•è°ƒç”¨
  * Created by yunshen.ljy on 2015/7/27.
  */
 public class MethodInvoke {
@@ -28,15 +28,15 @@ public class MethodInvoke {
     }
 
     public static void main(String[] args) {
-        // 1¡¢¹¹ÔìÃ»ÓĞ²ÎÊı
+        // 1ã€æ„é€ æ²¡æœ‰å‚æ•°
         final MethodInvoke car = MethodInvoke.create(MethodInvoke::new);
         final List<MethodInvoke> cars = Arrays.asList(car);
-        // 2¡¢¾²Ì¬·½·¨µ÷ÓÃ£¬½ÓÊÜÒ»¸ö±¾ÀàµÄ²ÎÊı
+        // 2ã€é™æ€æ–¹æ³•è°ƒç”¨ï¼Œæ¥å—ä¸€ä¸ªæœ¬ç±»çš„å‚æ•°
         cars.forEach(MethodInvoke::collide);
-        // 3¡¢ÎŞ²ÎÊıµÄÌØ¶¨ÀàµÄÈÎÒâ·½·¨
+        // 3ã€æ— å‚æ•°çš„ç‰¹å®šç±»çš„ä»»æ„æ–¹æ³•
         cars.forEach(MethodInvoke::repair);
         //        MethodInvoke::repair;
-        // 4¡¢ÌØ¶¨¶ÔÏóµÄÒıÓÃ£¬½ÓÊÜÒ»¸ö±¾ÀàĞÍµÄ²ÎÊı
+        // 4ã€ç‰¹å®šå¯¹è±¡çš„å¼•ç”¨ï¼Œæ¥å—ä¸€ä¸ªæœ¬ç±»å‹çš„å‚æ•°
         cars.forEach(car::follow);
         Arrays.asList(car).forEach(ss -> car.follow(car));
 
@@ -45,24 +45,24 @@ public class MethodInvoke {
 
         System.out.println(backToString.apply("123"));
 
-//
-//        Operation<String, Integer> operation = Integer::parseInt;
-//
-//        // Prints the integer 9
-//        System.out.println(operation.calculate("34"));
+        //
+        //        Operation<String, Integer> operation = Integer::parseInt;
+        //
+        //        // Prints the integer 9
+        //        System.out.println(operation.calculate("34"));
 
 
-//        Supplier<Person> personSupplier = Person::new;
-//        personSupplier.get();   // new Person
+        //        Supplier<Person> personSupplier = Person::new;
+        //        personSupplier.get();   // new Person
 
 
-//        Comparator<Person> comparator = (p1, p2) -> p1.firstName.compareTo(p2.firstName);
-//
-//        Person p1 = new Person("John", "Doe");
-//        Person p2 = new Person("Alice", "Wonderland");
-//
-//        comparator.compare(p1, p2);             // > 0
-//        comparator.reversed().compare(p1, p2);  // < 0
+        //        Comparator<Person> comparator = (p1, p2) -> p1.firstName.compareTo(p2.firstName);
+        //
+        //        Person p1 = new Person("John", "Doe");
+        //        Person p2 = new Person("Alice", "Wonderland");
+        //
+        //        comparator.compare(p1, p2);             // > 0
+        //        comparator.reversed().compare(p1, p2);  // < 0
 
     }
 }

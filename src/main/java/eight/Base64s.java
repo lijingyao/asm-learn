@@ -8,11 +8,12 @@ import java.util.Base64;
  * Created by yunshen.ljy on 2015/7/28.
  */
 public class Base64s {
-    // （Base64.getUrlEncoder() / Base64.getUrlDecoder(), Base64.getMimeEncoder()
-    // / Base64.getMimeDecoder()）。
+//     （Base64.getUrlEncoder() / Base64.getUrlDecoder(), Base64.getMimeEncoder()
+//      Base64.getMimeDecoder()）。
 
     public static void main(String[] args) {
         final String text = "さよならにさよなら";
+//        Base64.ge
 
         final String encoded = Base64.getEncoder().encodeToString(text.getBytes(StandardCharsets.UTF_8));
         System.out.println(encoded);

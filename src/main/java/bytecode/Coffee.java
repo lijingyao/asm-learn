@@ -1,6 +1,7 @@
 package bytecode;
 
 /**
+ * /Users/lijingyao/Documents/Workspace/JavaWorkforceIdea/asm/src/main/java/bytecode/Coffee.java
  * Created by yunshen.ljy on 2015/6/16.
  */
 public class Coffee {
